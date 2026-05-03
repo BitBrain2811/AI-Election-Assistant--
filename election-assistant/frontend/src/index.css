@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --saffron: #FF9933;
+    --india-green: #138808;
+    --india-blue: #000080;
+    --ashoka-blue: #1a56db;
+  }
+
+  * {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    @apply bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3 { font-family: 'Playfair Display', serif; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-orange-200 dark:hover:shadow-orange-900 hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply bg-white dark:bg-gray-800 text-orange-600 dark:text-orange-400 border-2 border-orange-500 font-semibold py-3 px-6 rounded-xl transition-all duration-200 hover:bg-orange-50 dark:hover:bg-gray-700 hover:-translate-y-0.5;
+  }
+
+  .btn-ghost {
+    @apply text-gray-600 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400 font-medium py-2 px-4 rounded-lg transition-all duration-200 hover:bg-orange-50 dark:hover:bg-gray-800;
+  }
+
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-2xl shadow-card border border-gray-100 dark:border-gray-700 p-6 transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1;
+  }
+
+  .glass {
+    @apply bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl border border-white/20 dark:border-gray-700/50;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-orange-500 via-orange-600 to-green-600 bg-clip-text text-transparent;
+  }
+
+  .india-gradient {
+    background: linear-gradient(135deg, #FF9933 0%, #FFFFFF 50%, #138808 100%);
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold text-gray-900 dark:text-white font-display;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 text-xs font-semibold py-1 px-3 rounded-full;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200;
+  }
+
+  .timeline-line {
+    @apply absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-orange-400 to-green-500;
+  }
+
+  .nav-link {
+    @apply text-gray-600 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400 font-medium transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 hover:after:w-full after:transition-all after:duration-300;
+  }
+
+  .stat-card {
+    @apply card text-center hover:border-orange-200 dark:hover:border-orange-800;
+  }
+
+  .shimmer {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  .dark .shimmer {
+    background: linear-gradient(90deg, #1f2937 25%, #374151 50%, #1f2937 75%);
+    background-size: 200% 100%;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  
+  .india-border {
+    border-image: linear-gradient(to right, #FF9933, #138808) 1;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { @apply bg-gray-100 dark:bg-gray-900; }
+::-webkit-scrollbar-thumb { @apply bg-orange-400 rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-orange-500; }
+
+/* Animated gradient background */
+.animated-bg {
+  background: linear-gradient(-45deg, #fff8f0, #fff3e0, #f0fff4, #f0f4ff);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+.dark .animated-bg {
+  background: linear-gradient(-45deg, #0f0a00, #1a0f00, #001a0a, #000a1a);
+  background-size: 400% 400%;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Flag stripe decoration */
+.flag-stripe {
+  height: 4px;
+  background: linear-gradient(to right, #FF9933 33.33%, #FFFFFF 33.33%, #FFFFFF 66.66%, #138808 66.66%);
+}
+
+/* Ashoka Chakra spinning */
+.chakra-spin {
+  animation: spin 20s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Glow effects */
+.glow-orange { box-shadow: 0 0 30px rgba(249, 115, 22, 0.3); }
+.glow-green { box-shadow: 0 0 30px rgba(19, 136, 8, 0.3); }
+
+/* Chat bubble styles */
+.chat-bubble-user {
+  @apply bg-orange-500 text-white rounded-2xl rounded-tr-sm px-4 py-3 max-w-xs ml-auto;
+}
+
+.chat-bubble-bot {
+  @apply bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 rounded-2xl rounded-tl-sm px-4 py-3 max-w-xs border border-gray-100 dark:border-gray-700 shadow-sm;
+}
+
+/* Progress bar animation */
+.progress-animated {
+  transition: width 1s ease-in-out;
+}
+
+/* Page transition */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 400ms, transform 400ms;
+}
